@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling==1.27.0", "setuptools==84.0.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "colony-one-env"
+version = "1.0.0"
+description = "Standalone environment for the Colony: One tournament"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<3.15"
+keywords = ["reinforcement-learning", "board-game", "mcts", "alphazero"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    # Not an OSI license: non-commercial use only, see LICENSE.
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Games/Entertainment :: Board Games",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# NumPy runs the game; onnx and onnxruntime load and run a submission. Note
+# what is *not* here: no training framework. Nothing in this package constrains
+# what you train with -- the environment is NumPy, and the contract is a file.
+dependencies = [
+    "numpy>=1.24",
+    "onnx>=1.22.0",
+    "onnxruntime>=1.24.3",
+    # Keep the serialized-message parser on a patched release in every
+    # tournament environment, even when it is introduced transitively.
+    "msgpack>=1.2.1",
+    # Keep package builds on a patched setuptools release.
+    "setuptools==84.0.0",
+    "psutil>=7.0.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.16"]
+validation = ["psutil"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["colony_one"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "colony_one",
+    "tests",
+    "tools",
+    "play",
+    "docs",
+    "README.md",
+    "LICENSE",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# -q keeps the output to one progress line per file rather than one per test.
+addopts = "-q"
+
+[tool.ruff]
+line-length = 90
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+# SIM108 wants a ternary where an if/else block spells out a two-way rule
+# (uniform vs normalised visit counts). The explicit form is what a
+# participant reading the search should see.
+ignore = ["SIM108"]

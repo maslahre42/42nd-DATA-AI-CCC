@@ -1,0 +1,39 @@
+# CYAN vs MAGENTA
+# SCENE bbb07676-7676-7676-7670-767600076bbb
+  1. CYAN     EX  D2 -> C4  MOVE
+  2. CYAN     KE  A1 -> A2  MOVE
+  3. MAGENTA  PI  G5 -> F5  MOVE
+  4. MAGENTA  TR  H6 -> H7  MOVE
+  5. CYAN     KE  A2 -> A1  MOVE
+  6. CYAN     EX  C4 -> D6  MOVE
+  7. MAGENTA  EX  E7 -> D5  MOVE
+  8. MAGENTA  EX  D5 -> B4  MOVE   xPI
+  9. CYAN     EX  D6 -> F5  MOVE   xPI
+ 10. CYAN     EX  F5 -> G7  MOVE   xIC
+ 11. MAGENTA  KE  H8 -> G7  MOVE   xEX
+ 12. MAGENTA  EX  B4 -> D3  MOVE
+ 13. CYAN     DE  C1 -> C4  MOVE
+ 14. CYAN     DE  C4 -> D3  SHOOT  xEX
+ 15. MAGENTA  KE  G7 -> G6  MOVE
+ 16. MAGENTA  TR  H7 -> G7  MOVE
+ 17. CYAN     TR  A3 -> B3  MOVE
+ 18. CYAN     TR  B3 -> B4  MOVE
+ 19. MAGENTA  TR  G7 -> F7  MOVE
+ 20. MAGENTA  TR  F7 -> C4  SHOOT  xDE
+ 21. CYAN     TR  B4 -> C4  MOVE
+ 22. CYAN     TR  C4 -> F7  SHOOT  xTR
+ 23. MAGENTA  DE  F8 -> F6  MOVE
+ 24. MAGENTA  DE  F6 -> F5  MOVE
+ 25. CYAN     IC  B2 -> C2  MOVE
+ 26. CYAN     KE  A1 -> B2  MOVE
+ 27. MAGENTA  DE  F5 -> C5  MOVE
+ 28. MAGENTA  KE  G6 -> G5  MOVE
+ 29. CYAN     TR  C4 -> C3  MOVE
+ 30. CYAN     TR  C3 -> B3  MOVE
+ 31. MAGENTA  DE  C5 -> C2  MOVE   xIC
+ 32. MAGENTA  DE  C2 -> B2  SHOOT  xTR (B3)
+---- *** FIREWALL ROUND 8: [] ***
+ 33. CYAN     KE  B2 -> C2  MOVE   xDE
+ 34. CYAN     KE  C2 -> D3  MOVE
+---- *** BARE KERNEL RULE TRIGGERS ***
+---- *** CYAN WINS ***
