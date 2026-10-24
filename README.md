@@ -17,7 +17,7 @@ The trained model (`model.onnx`) pairs a 338,593-parameter dual-headed convoluti
 
 * **Winner Certificate:** Awarded the official 42nd Cloudflight Coding Contest Winner Certificate ([docs/certificates/ccc-winner-certificate-42nd-data-ai-ccc-5873.pdf](docs/certificates/ccc-winner-certificate-42nd-data-ai-ccc-5873.pdf)).
 * **Tournament Compliance:** Passes the official validator (`tools/validate_submission.py`) with zero warnings: strictly clamped values in `[-0.999999, 0.999999]`, dynamic batching (1, 8, 16), zero `Constant` graph nodes, and 1.29 MiB payload (limit: 5.0 MiB).
-* **Competitive Performance:** Attained **42.5% overall win rate** (and **50.0% as Cyan**) in official 40-game referee arenas against `best_10.onnx` (the Germany #1 / Global 24th championship model).
+* **Competitive Performance:** Defeated `best_10.onnx` (Germany #1 / Global 24th championship model) with a **55.0% win rate** (22/40 wins: 60.0% as Cyan, 50.0% as Magenta) under official referee MCTS evaluation (100 simulations/move).
 * **High-Throughput Parallel Engine:** Multi-process CPU pipeline generating **8–11 games/second** across 10 workers, training a full 500-game AlphaZero cycle every 50 seconds.
 * **Engineering Handbook:** Comprehensive runbook included in [`SKILL.md`](SKILL.md) covering loss formulations, MCTS tuning, and anti-pitfall guidelines for competitive RL.
 

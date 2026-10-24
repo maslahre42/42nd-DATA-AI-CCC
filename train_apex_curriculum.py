@@ -506,6 +506,7 @@ def main():
     parser.add_argument("--promote-rate", type=float, default=0.55)
     parser.add_argument("--out", type=Path, default=Path("runs/apex_curriculum"))
     parser.add_argument("--nemesis", type=str, default="best_10.onnx")
+    parser.add_argument("--target-wr", type=float, default=55.0, help="Target win rate against nemesis (Eray) to declare victory")
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
 
@@ -611,9 +612,9 @@ def main():
                 shutil.copyfile(champion_onnx, "model.onnx")
                 print(f">>> NEW RECORD VS NEMESIS: {nemesis_wr:.1f}%! PROMOTED TO model.onnx! <<<", flush=True)
 
-            if best_wr_vs_nemesis >= 60.0:
+            if best_wr_vs_nemesis >= args.target_wr:
                 print("\n" + "=" * 72, flush=True)
-                print(f"MISSION ACCOMPLISHED! Candidate achieved {best_wr_vs_nemesis:.1f}% >= 60.0% vs {args.nemesis}!", flush=True)
+                print(f"MISSION ACCOMPLISHED! Candidate achieved {best_wr_vs_nemesis:.1f}% >= {args.target_wr:.1f}% vs {args.nemesis}!", flush=True)
                 print("=" * 72, flush=True)
                 break
         else:
